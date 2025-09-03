@@ -104,9 +104,6 @@ export default function ContactClientPage() {
           </h1>
           {/* Animated underline */}
           <span className="mt-3 inline-block h-[2px] w-24 origin-left animate-[grow_1s_ease-out] bg-cyan-400/80 [box-shadow:0_0_12px_rgba(0,229,255,0.5)]" />
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-zinc-300">
-            We’re here to connect with you across the globe.
-          </p>
         </div>
         <style jsx>{`
           @keyframes grow {
