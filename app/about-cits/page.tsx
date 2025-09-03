@@ -8,6 +8,7 @@
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { SiteFooter } from "@/components/cits/footer"
 
 /* ---------- Small hologram widgets (lightweight + performant) ---------- */
 
@@ -156,19 +157,21 @@ function HoloGlobe({ className }: { className?: string }) {
 function HoloEngagement({ className }: { className?: string }) {
   const chips = [
     { label: "PPP", desc: "Public–Private Partnerships" },
-    { label: "SVP", desc: "Strategic Vendor Partnerships" },
+    { label: "SVP", desc: "Special Purpose Vehicle Projects" },
+    { label: "PFI", desc: "Private Finance Investment IT Initiatives" },
+    { label: "SPI", desc: "Strategic Partnership Initiatives" },
     { label: "BOT", desc: "Build–Operate–Transfer" },
   ]
   return (
     <div className={cn("relative rounded-md border border-white/10 bg-black/40 p-4", className)}>
-      <div className="grid grid-cols-3 items-center gap-3">
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-5">
         {chips.map((c) => (
           <div
             key={c.label}
-            className="group relative select-none rounded-md border border-cyan-400/40 bg-black/30 px-3 py-6 text-center text-cyan-300 shadow-[0_0_20px_rgba(0,229,255,0.15)] transition-transform duration-200 hover:-rotate-1 hover:scale-[1.03]"
+            className="group relative select-none rounded-md border border-cyan-400/40 bg-black/30 px-2 py-4 text-center text-cyan-300 shadow-[0_0_20px_rgba(0,229,255,0.15)] transition-transform duration-200 hover:-rotate-1 hover:scale-[1.03]"
             title={c.desc}
           >
-            <span className="text-lg font-semibold">{c.label}</span>
+            <span className="text-sm font-semibold md:text-lg">{c.label}</span>
             <div className="pointer-events-none absolute inset-0 rounded-md ring-1 ring-cyan-400/20" />
           </div>
         ))}
@@ -227,7 +230,7 @@ export default function AboutCITSPage() {
           Solution integrators enabling national-scale ICT transformation across developing nations.
         </p>
         <p className="mt-2 text-sm text-white/60">
-          Formed by a consortium of multiple IT companies—leveraging technology, solutions, and deep industry expertise.
+          Formed as a consortium by multiple IT companies leveraging technology, Solutions and Industry expertise.
         </p>
       </header>
 
@@ -266,18 +269,36 @@ export default function AboutCITSPage() {
       {/* 5) How We Engage */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold">How We Engage</h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {[
             {
-              t: "PPP Projects",
-              d: "Structuring public–private partnerships for sustainable ICT impact and delivery.",
+              title: "PPP Projects",
+              description: "Structuring public–private partnerships for sustainable ICT impact and delivery.",
             },
-            { t: "SVP Programs", d: "Strategic vendor partnerships that deliver value at scale." },
-            { t: "BOT Models", d: "Build–Operate–Transfer initiatives with long-term governance and handover." },
+            { 
+              title: "SVP Programs", 
+              description: "Strategic vendor partnerships that deliver value at scale." 
+            },
+            { 
+              title: "BOT Models", 
+              description: "Build–Operate–Transfer initiatives with long-term governance and handover." 
+            },
+            {
+              title: "SVP - Special Purpose Vehicle Projects",
+              description: "Specialized project vehicles for targeted ICT infrastructure development and implementation.",
+            },
+            {
+              title: "PFI (Private Finance Investment) IT Initiatives",
+              description: "Private sector financing solutions for public ICT infrastructure and digital transformation projects.",
+            },
+            {
+              title: "Strategic Partnership Initiatives (SPI)",
+              description: "Long-term collaborative partnerships for comprehensive digital ecosystem development.",
+            },
           ].map((card) => (
-            <div key={card.t} className="rounded-md border border-white/10 bg-black/40 p-4">
-              <h3 className="text-lg text-white">{card.t}</h3>
-              <p className="mt-2 text-sm text-white/75">{card.d}</p>
+            <div key={card.title} className="rounded-md border border-white/10 bg-black/40 p-4">
+              <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+              <p className="mt-2 text-sm text-white/75">{card.description}</p>
             </div>
           ))}
         </div>
@@ -287,9 +308,7 @@ export default function AboutCITSPage() {
       <section className="mb-10">
         <h2 className="text-2xl font-semibold">What We Do</h2>
         <p className="mt-3 text-pretty text-white/80">
-          We co-design and integrate national platforms and enterprise modernization programs. Our teams bring
-          cross-disciplinary expertise across policy, technology, operations, security, and governance to accelerate
-          country-level ICT transformation.
+          We co-design and integrate national ICT platforms and enterprise modernization initiatives. Our consortium partners  bring cross-disciplinary expertise across policy, technology, operations, security, and governance to accelerate country-level ICT transformation.
         </p>
       </section>
 
@@ -315,35 +334,18 @@ export default function AboutCITSPage() {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold">Our Impact Principles</h2>
         <ul className="mt-4 list-disc space-y-2 pl-6 text-white/85">
-          <li>Inclusivity and accessibility for citizens and businesses</li>
-          <li>Security, privacy, and trust by design</li>
-          <li>Interoperability and open standards</li>
-          <li>Sustainability and local capacity building</li>
-          <li>Transparent governance and measurable outcomes</li>
+          <li>Access to Next Generation/Future Technology at fingertips at an affordable price.</li>
+          <li>Transparent, accountable and efficient government processes.</li>
+          <li>Enhanced Public Services through technology.</li>
+          <li>New Industries and Job Creation.</li>
+          <li>Increased Productivity.</li>
+          <li>Economic Growth and Competitiveness.</li>
+          <li>Digital Economy Transition.</li>
+          <li>Sustainable Development.</li>
         </ul>
       </section>
 
-      {/* 9) Call to Action */}
-      <section className="mb-4 rounded-md border border-white/10 bg-black/40 p-6 text-center">
-        <h2 className="text-2xl font-semibold">Collaborate with CITS Global</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-pretty text-white/80">
-          Partner with us to accelerate your national digital strategy and deliver resilient growth.
-        </p>
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <Link
-            href="/#solutions"
-            className="rounded-md border border-cyan-400/40 bg-black/60 px-4 py-2 text-sm text-cyan-200 hover:bg-black/40"
-          >
-            Explore Partner Solutions
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/15"
-          >
-            Contact Us
-          </Link>
-        </div>
-      </section>
+      <SiteFooter />
     </main>
   )
 }

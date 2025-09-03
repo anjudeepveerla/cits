@@ -1,4 +1,4 @@
-import Image from "next/image"
+import { HolographicLogo } from "./holographic-logo"
 
 export function SiteFooter() {
   const year = 2025
@@ -6,13 +6,12 @@ export function SiteFooter() {
     <footer className="border-t border-[#1a1f2b] bg-black">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4">
-          <Image
-            src="/brand/cits-logo.png"
-            alt="CITS Global logo"
-            width={80}
-            height={80}
-            className="h-16 w-16 object-contain brightness-110 contrast-125 filter grayscale-0 hover:scale-105 transition-transform duration-200"
-            sizes="64px"
+          <img
+            src="/new-logo.png.jpg"
+            alt="CITS Global Logo"
+            width={64}
+            height={64}
+            className="h-16 w-16 object-contain hover:scale-105 transition-transform duration-200"
           />
           <span className="text-xl font-bold tracking-wider text-white md:text-2xl hover:text-[#00e5ff] transition-colors duration-200">CITS GLOBAL</span>
         </div>

@@ -1,5 +1,7 @@
 "use client"
 
+import { SiteFooter } from "@/components/cits/footer"
+
 type Partner = { name: string; src: string; alt: string }
 
 const partners: Partner[] = [
@@ -31,43 +33,78 @@ export default function PartnersClientPage() {
       </section>
 
       {/* Optional intro */}
-      <section className="mx-auto max-w-3xl px-6">
+      <section className="mx-auto max-w-3xl px-6 py-4">
         <p className="text-center text-pretty text-white/70">
           We are proud to collaborate with leading organizations across the globe, driving innovation and ICT
           transformation together.
         </p>
       </section>
 
+      {/* Holographic Globe Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 opacity-20">
+          <div className="relative w-full h-full">
+            {/* Holographic globe effect with dots */}
+            <div className="absolute inset-0 rounded-full bg-gradient-radial from-white/10 via-transparent to-transparent">
+              {Array.from({ length: 50 }).map((_, i) => {
+                const angle = (i / 50) * Math.PI * 2
+                const radius = 120 + Math.random() * 60
+                const x = Math.cos(angle) * radius + 192
+                const y = Math.sin(angle) * radius + 192
+                const size = Math.max(1, 4 - (i / 50) * 3)
+                return (
+                  <div
+                    key={i}
+                    className="absolute w-1 h-1 bg-white/60 rounded-full animate-pulse"
+                    style={{
+                      left: `${x}px`,
+                      top: `${y}px`,
+                      width: `${size}px`,
+                      height: `${size}px`,
+                      animationDelay: `${i * 0.1}s`,
+                      animationDuration: `${2 + Math.random() * 2}s`
+                    }}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Logos grid */}
-      <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4" role="list" aria-label="Partner logos">
+      <section className="mx-auto max-w-7xl px-6 py-8 md:py-12 relative z-10">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-3" role="list" aria-label="Partner logos">
           {partners.map((p) => (
             <article
               key={p.name}
-              className="group aspect-[4/3] rounded-lg border border-white/10 bg-white/5 p-6 transition hover:border-cyan-400/50 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.35),0_0_24px_rgba(34,211,238,0.15)] focus-within:border-cyan-400/60"
+              className="group relative aspect-[4/3] rounded-xl border border-white/20 bg-gradient-to-br from-white/10 to-white/5 p-8 transition-all duration-300 hover:border-cyan-400/60 hover:shadow-[0_0_32px_rgba(34,211,238,0.25)] hover:scale-105 focus-within:border-cyan-400/70 backdrop-blur-sm"
               aria-label={p.name}
             >
-              <div className="flex h-full items-center justify-center">
+              {/* Background glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              
+              <div className="relative flex h-full items-center justify-center">
                 <img
                   src={p.src || "/placeholder.svg"}
                   alt={p.alt}
-                  className="max-h-14 w-auto object-contain opacity-90 transition group-hover:opacity-100"
+                  className="max-h-20 w-auto object-contain transition-all duration-300 group-hover:scale-110 group-hover:brightness-110"
+                  style={{ filter: 'contrast(1.1) brightness(1.05)' }}
                 />
+              </div>
+              
+              {/* Partner name overlay */}
+              <div className="absolute bottom-2 left-2 right-2 text-center">
+                <span className="text-xs font-medium text-white/60 transition-colors duration-300 group-hover:text-white/80">
+                  {p.name}
+                </span>
               </div>
             </article>
           ))}
         </div>
-
-        {/* CTA */}
-        <div className="mt-12 flex items-center justify-center">
-          <a
-            href="/contact"
-            className="rounded-md bg-cyan-500 px-5 py-2.5 text-sm font-medium text-black transition hover:bg-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70"
-          >
-            Become a Partner
-          </a>
-        </div>
       </section>
+
+      <SiteFooter />
 
       <style jsx global>{`
         @keyframes slide {

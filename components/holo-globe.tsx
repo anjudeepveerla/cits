@@ -129,6 +129,55 @@ export function HoloGlobe({
       ctx.arc(width / 2, height / 2, radius * 0.95, 0, Math.PI * 2)
       ctx.fill()
 
+      // Add glowing red dots for Sri Lanka and Africa
+      ctx.save()
+      
+      // Sri Lanka coordinates (approximate)
+      const sriLankaCoords: [number, number, number] = [0.8, -0.1, 0.6] // Adjusted for better visibility
+      const sriLankaProjected = project(sriLankaCoords, radius, rotY, rotX)
+      
+      // Africa coordinates (approximate - central Africa)
+      const africaCoords: [number, number, number] = [0.2, 0.1, 0.8] // Adjusted for better visibility
+      const africaProjected = project(africaCoords, radius, rotY, rotX)
+      
+      // Draw Sri Lanka dot
+      if (sriLankaProjected.depth > 0) {
+        ctx.globalAlpha = 0.8
+        ctx.fillStyle = "#ff0000"
+        ctx.shadowColor = "#ff0000"
+        ctx.shadowBlur = 15
+        ctx.beginPath()
+        ctx.arc(sriLankaProjected.sx, sriLankaProjected.sy, 4, 0, Math.PI * 2)
+        ctx.fill()
+        
+        // Sri Lanka label
+        ctx.globalAlpha = 0.9
+        ctx.fillStyle = "#ffffff"
+        ctx.font = "12px Arial"
+        ctx.textAlign = "left"
+        ctx.fillText("Sri Lanka", sriLankaProjected.sx + 8, sriLankaProjected.sy + 4)
+      }
+      
+      // Draw Africa dot
+      if (africaProjected.depth > 0) {
+        ctx.globalAlpha = 0.8
+        ctx.fillStyle = "#ff0000"
+        ctx.shadowColor = "#ff0000"
+        ctx.shadowBlur = 15
+        ctx.beginPath()
+        ctx.arc(africaProjected.sx, africaProjected.sy, 4, 0, Math.PI * 2)
+        ctx.fill()
+        
+        // Africa label
+        ctx.globalAlpha = 0.9
+        ctx.fillStyle = "#ffffff"
+        ctx.font = "12px Arial"
+        ctx.textAlign = "left"
+        ctx.fillText("Africa", africaProjected.sx + 8, africaProjected.sy + 4)
+      }
+      
+      ctx.restore()
+
       ctx.restore()
       rafRef.current = requestAnimationFrame(draw)
     }

@@ -1,5 +1,6 @@
 "use client"
 import React from "react"
+import { SiteFooter } from "@/components/cits/footer"
 
 // Contact form client logic
 function ContactForm() {
@@ -171,6 +172,8 @@ export default function ContactClientPage() {
           </div>
         </div>
       </section>
+
+      <SiteFooter />
     </main>
   )
 }

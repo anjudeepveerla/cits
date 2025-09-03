@@ -22,6 +22,7 @@ import {
   Rocket,
 } from "lucide-react"
 import type React from "react"
+import { SiteFooter } from "@/components/cits/footer"
 
 // Mapping each solution to a Lucide icon
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -169,29 +170,7 @@ export default function PartnerSolutionsClientPage() {
         </ul>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto w-full max-w-7xl px-4 pb-16 md:pb-24" data-animate="fade-up">
-        <div className="rounded-xl border border-white/10 bg-black/40 p-8 text-center shadow-[0_0_28px_rgba(34,211,238,0.15)]">
-          <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Partner with CITS Global</h2>
-          <p className="mx-auto mt-2 max-w-2xl text-sm text-white/80">
-            Let’s co‑create national-scale ICT programs and accelerate impact.
-          </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="/contact"
-              className="rounded-md border border-cyan-400 bg-cyan-500/10 px-5 py-2 text-sm font-medium text-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.35)] transition hover:bg-cyan-500/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60"
-            >
-              Get in touch
-            </a>
-            <a
-              href="/partner-tech-specialization"
-              className="rounded-md border border-white/15 px-5 py-2 text-sm font-medium text-white/90 transition hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
-            >
-              Explore Tech Specialization
-            </a>
-          </div>
-        </div>
-      </section>
+      <SiteFooter />
     </main>
   )
 }

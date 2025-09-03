@@ -1,17 +1,17 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 
 const nav = [
-  { href: "/about-cits", label: "About CITS" },
-  { href: "/partner-solutions", label: "Partner Solutions" },
-  { href: "/partner-tech-specialization", label: "Partner Tech Specialization" },
+  { href: "/about-cits", label: "About" },
+  { href: "/partner-solutions", label: "Solutions" },
+  { href: "/partner-tech-specialization", label: "Technology" },
   { href: "/partners", label: "Partners" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/consortium", label: "Governance" },
+  { href: "/contact", label: "Contact" },
 ]
 
 export function SiteHeader() {
@@ -40,14 +40,12 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
         <Link href="/" className="flex items-center gap-4" aria-label="CITS Global - Home">
-          <Image
-            src="/brand/cits-logo.png"
-            alt="CITS Global logo"
+          <img
+            src="/new-logo.png.jpg"
+            alt="CITS Global Logo"
             width={96}
             height={96}
-            priority
-            className="h-20 w-20 md:h-24 md:w-24 object-contain brightness-110 contrast-125 filter grayscale-0 hover:scale-105 transition-transform duration-200"
-            sizes="(max-width: 768px) 80px, 96px"
+            className="h-20 w-20 md:h-24 md:w-24 object-contain hover:scale-105 transition-transform duration-200"
           />
           <span className="text-xl font-bold tracking-wider text-white md:text-2xl hover:text-[#00e5ff] transition-colors duration-200">CITS GLOBAL</span>
         </Link>
