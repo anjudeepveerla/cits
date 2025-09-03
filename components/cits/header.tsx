@@ -39,17 +39,17 @@ export function SiteHeader() {
       aria-label="Primary"
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
-        <Link href="/" className="flex items-center gap-3" aria-label="CITS Global - Home">
+        <Link href="/" className="flex items-center gap-4" aria-label="CITS Global - Home">
           <Image
             src="/brand/cits-logo.png"
             alt="CITS Global logo"
-            width={36}
-            height={36}
+            width={96}
+            height={96}
             priority
-            className="h-8 w-8 md:h-9 md:w-9 object-contain"
-            sizes="(max-width: 768px) 32px, 36px"
+            className="h-20 w-20 md:h-24 md:w-24 object-contain brightness-110 contrast-125 filter grayscale-0 hover:scale-105 transition-transform duration-200"
+            sizes="(max-width: 768px) 80px, 96px"
           />
-          <span className="text-sm font-medium tracking-wide text-white md:text-base">CITS GLOBAL</span>
+          <span className="text-xl font-bold tracking-wider text-white md:text-2xl hover:text-[#00e5ff] transition-colors duration-200">CITS GLOBAL</span>
         </Link>
         <button
           type="button"
